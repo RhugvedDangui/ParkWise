@@ -4,11 +4,13 @@ export interface ParkingSpot {
   latitude: number;
   longitude: number;
   isAvailable: boolean;
-  isVerified: boolean;
+  isVerified?: boolean;
   spotType: 'standard' | 'ev' | 'covered' | 'handicap';
   pricePerHour: number;
   distance?: number;
   lastUpdated: Date;
+  video_path?: string;
+  camera_id?: string;
 }
 
 export interface UserLocation {

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking - Traffic Congestion Dashboard</title>
+    <link rel="stylesheet" href="parking-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-parking"></i>
+            <h1>Smart Parking System</h1>
+        </div>
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span>Admin</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card floating-card">
+                <div class="stat-icon" style="background: #4f46e5;">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Total Spaces</h3>
+                    <p class="stat-value">450</p>
+                    <span class="stat-change positive">+12 from yesterday</span>
+                </div>
+            </div>
+
+            <div class="stat-card floating-card">
+                <div class="stat-icon" style="background: #10b981;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Available</h3>
+                    <p class="stat-value">127</p>
+                    <span class="stat-change positive">28% capacity</span>
+                </div>
+            </div>
+
+            <div class="stat-card floating-card">
+                <div class="stat-icon" style="background: #f59e0b;">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Occupied</h3>
+                    <p class="stat-value">323</p>
+                    <span class="stat-change negative">72% capacity</span>
+                </div>
+            </div>
+
+            <div class="stat-card floating-card">
+                <div class="stat-icon" style="background: #ef4444;">
+                    <i class="fas fa-traffic-light"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Congestion Level</h3>
+                    <p class="stat-value">High</p>
+                    <span class="stat-change negative">Peak hours</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-container">
+            <!-- Traffic Congestion Chart -->
+            <div class="chart-card floating-card">
+                <div class="chart-header">
+                    <div>
+                        <h2>Traffic Congestion Flow</h2>
+                        <p class="chart-subtitle">Real-time parking area traffic density</p>
+                    </div>
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-period="today">Today</button>
+                        <button class="chart-btn" data-period="week">Week</button>
+                        <button class="chart-btn" data-period="month">Month</button>
+                    </div>
+                </div>
+                <canvas id="trafficChart"></canvas>
+            </div>
+
+            <!-- Parking Occupancy Chart -->
+            <div class="chart-card floating-card">
+                <div class="chart-header">
+                    <div>
+                        <h2>Parking Occupancy Rate</h2>
+                        <p class="chart-subtitle">Hourly parking space utilization</p>
+                    </div>
+                    <div class="chart-legend">
+                        <span class="legend-item">
+                            <span class="legend-dot" style="background: #4f46e5;"></span>
+                            Occupied
+                        </span>
+                        <span class="legend-item">
+                            <span class="legend-dot" style="background: #10b981;"></span>
+                            Available
+                        </span>
+                    </div>
+                </div>
+                <canvas id="occupancyChart"></canvas>
+            </div>
+
+            <!-- Peak Hours Chart -->
+            <div class="chart-card floating-card">
+                <div class="chart-header">
+                    <div>
+                        <h2>Peak Traffic Hours</h2>
+                        <p class="chart-subtitle">Average vehicles per hour</p>
+                    </div>
+                </div>
+                <canvas id="peakHoursChart"></canvas>
+            </div>
+
+            <!-- Zone Congestion Chart -->
+            <div class="chart-card floating-card">
+                <div class="chart-header">
+                    <div>
+                        <h2>Zone-wise Congestion</h2>
+                        <p class="chart-subtitle">Traffic density by parking zones</p>
+                    </div>
+                </div>
+                <canvas id="zoneChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Live Traffic Status -->
+        <div class="traffic-status floating-card">
+            <h2>Live Parking Zones Status</h2>
+            <div class="zones-grid">
+                <div class="zone-item">
+                    <div class="zone-header">
+                        <h3>Zone A - North</h3>
+                        <span class="zone-status high">High Traffic</span>
+                    </div>
+                    <div class="zone-bar">
+                        <div class="zone-fill" style="width: 85%; background: #ef4444;"></div>
+                    </div>
+                    <p class="zone-info">85% occupied • 15/100 available</p>
+                </div>
+
+                <div class="zone-item">
+                    <div class="zone-header">
+                        <h3>Zone B - South</h3>
+                        <span class="zone-status medium">Medium Traffic</span>
+                    </div>
+                    <div class="zone-bar">
+                        <div class="zone-fill" style="width: 62%; background: #f59e0b;"></div>
+                    </div>
+                    <p class="zone-info">62% occupied • 38/100 available</p>
+                </div>
+
+                <div class="zone-item">
+                    <div class="zone-header">
+                        <h3>Zone C - East</h3>
+                        <span class="zone-status low">Low Traffic</span>
+                    </div>
+                    <div class="zone-bar">
+                        <div class="zone-fill" style="width: 35%; background: #10b981;"></div>
+                    </div>
+                    <p class="zone-info">35% occupied • 65/100 available</p>
+                </div>
+
+                <div class="zone-item">
+                    <div class="zone-header">
+                        <h3>Zone D - West</h3>
+                        <span class="zone-status high">High Traffic</span>
+                    </div>
+                    <div class="zone-bar">
+                        <div class="zone-fill" style="width: 78%; background: #ef4444;"></div>
+                    </div>
+                    <p class="zone-info">78% occupied • 22/100 available</p>
+                </div>
+
+                <div class="zone-item">
+                    <div class="zone-header">
+                        <h3>Zone E - Central</h3>
+                        <span class="zone-status medium">Medium Traffic</span>
+                    </div>
+                    <div class="zone-bar">
+                        <div class="zone-fill" style="width: 58%; background: #f59e0b;"></div>
+                    </div>
+                    <p class="zone-info">58% occupied • 63/150 available</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="parking-script.js"></script>
+</body>
+</html>

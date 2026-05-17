@@ -1,0 +1,74 @@
+1. Visual Design & Overall Feel
+The aesthetic should be modern, clean, and highly functional—similar to leading navigation apps like Google Maps or Waze, but hyper-focused on parking.
+
+Color Palette: Use a dark mode by default (or auto-switch based on time of day) to reduce glare while driving at night.
+
+Color-Coded Status: Rely heavily on universal color psychology:
+
+Green: High availability / Free spots.
+
+Orange/Yellow: Filling up fast / Limited spots.
+
+Red: Full / No parking.
+
+Blue: EV Charging stations.
+
+Typography: Large, highly legible, sans-serif fonts. Drivers need to read information at a quick glance.
+
+Touch Targets: Buttons and interactive elements must be large and easy to tap with one hand.
+
+2. Key Screens & UI Components
+A. The Home Screen (The Map View)
+This is the core of the app. The map should take up 80–90% of the screen real estate.
+
+Interactive Map: A smooth 2D/3D map showing streets, buildings, and parking zones.
+
+Smart Search Bar (Top): "Where do you want to park?" with quick-select icons for "Home," "Work," or "Saved Locations."
+
+Quick Filters (Below Search): Scrollable pill-shaped buttons for instant filtering (e.g., EV Only, Covered Parking, Free Spots, Under $5/hr).
+
+Dynamic Map Markers: Pins showing real-time spot availability. Tapping a pin should slightly zoom in and bring up the details.
+
+Heatmap Overlay Toggle: A floating button on the map to switch on the "Congestion Heatmap," shading streets in red, yellow, or green based on traffic/parking density.
+
+Floating Action Buttons (FABs):
+
+Recenter Location button.
+
+Report Spot button (large, easily accessible).
+
+B. Spot Details & Action Panel (Bottom Sheet)
+When a user taps a parking pin, a card should slide up from the bottom of the screen.
+
+Basic Info: Name/Address of the lot or street.
+
+Predictive Gauge: A visual meter saying "Spot likely to fill in 10 mins" based on your predictive AI.
+
+Metrics: Price per hour, distance from destination, and estimated walking time to the final destination.
+
+Live Updates: "Last updated 2 mins ago by user / sensor."
+
+Call-to-Action (CTA) Buttons: Two massive, primary buttons: "Navigate Here" and "Reserve Spot" (if applicable).
+
+C. The Crowdsourcing / Reporting UI
+This needs to be extremely frictionless so users actually use it.
+
+1-Tap Actions: A quick pop-up asking, "Leaving your spot?" with "Yes" and "No" buttons.
+
+Gamification Banner: A small UI element thanking the user and showing points earned (e.g., "+10 ParkWise Points for updating!").
+
+D. Driving & Navigation Mode
+Once the user hits "Navigate," the UI must shift into a minimal driving mode.
+
+Turn-by-Turn Directions: Clear, bold arrows and street names.
+
+Auto-Rerouting Alert: A pop-up notification at the top: "Target spot just filled. Rerouting to nearest available spot (2 mins away)."
+
+Arrival Screen: Upon arriving, the app should automatically prompt the payment/timer screen or ask the user to confirm they parked successfully.
+
+E. User Profile & Wallet
+A slide-out menu or separate tab for user management.
+
+Digital Wallet: Current balance, linked credit cards, and parking receipt history.
+
+Vehicle Profiles: Let users save their car dimensions (compact vs. SUV) or EV plug type, so the app only shows spots their car can fit in.

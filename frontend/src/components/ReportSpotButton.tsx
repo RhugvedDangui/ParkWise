@@ -18,23 +18,23 @@ export default function ReportSpotButton({ onReport, isVerifying }: ReportSpotBu
       {/* Options Menu */}
       {showOptions && (
         <div className="absolute bottom-20 right-0 bg-white rounded-2xl shadow-2xl p-2 mb-2 animate-slide-up">
-          <button
-            onClick={() => handleReport(true)}
-            disabled={isVerifying}
+            <button
+              onClick={() => handleReport(true)}
+              disabled={isVerifying}
             className="w-full px-6 py-3 text-left hover:bg-green-50 rounded-xl transition-colors flex items-center gap-3 text-green-700 font-medium"
-          >
+            >
             <span className="text-2xl">✅</span>
             <span>Report Spot Free</span>
-          </button>
-          <button
-            onClick={() => handleReport(false)}
-            disabled={isVerifying}
+            </button>
+            <button
+              onClick={() => handleReport(false)}
+              disabled={isVerifying}
             className="w-full px-6 py-3 text-left hover:bg-red-50 rounded-xl transition-colors flex items-center gap-3 text-red-700 font-medium"
-          >
+            >
             <span className="text-2xl">❌</span>
             <span>Report Spot Taken</span>
-          </button>
-        </div>
+            </button>
+          </div>
       )}
 
       {/* Main FAB */}

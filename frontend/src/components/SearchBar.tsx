@@ -43,14 +43,14 @@ export default function SearchBar({ onLocationSelect }: SearchBarProps) {
           `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5`
         );
         const data = await response.json();
-        
+
         const formattedResults: SearchResult[] = data.map((item: any) => ({
           id: item.place_id,
           name: item.display_name,
           latitude: parseFloat(item.lat),
           longitude: parseFloat(item.lon),
         }));
-        
+
         setResults(formattedResults);
         setShowResults(true);
       } catch (error) {
